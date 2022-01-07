@@ -1,0 +1,55 @@
+{
+  "name": "mirine.tools",
+  "version": "1.0.0",
+  "description": "한국인 개발자가 자주 사용하는 도구 모음",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "webpack serve --config webpack.config.demo.js",
+    "build": "webpack",
+    "build:demo": "webpack --config webpack.config.demo.js",
+    "test": "jest",
+    "prepare": "npm run build",
+    "trypublish": "npm publish || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hkcho/mirine.tools"
+  },
+  "author": "조현권 <eddie88cho@gmail.com> (https://github.com/hkcho)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/hkcho/mirine.tools/issues"
+  },
+  "homepage": "https://github.com/hkcho/mirine.tools",
+  "keywords": [
+    "javascript",
+    "korean"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.16.7",
+    "@babel/core": "^7.16.5",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.16.7",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.3",
+    "babel-preset-minify": "^0.5.0",
+    "eslint": "^8.6.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.4.5",
+    "prettier": "^2.5.1",
+    "prettier-webpack-plugin": "^1.2.0",
+    "terser-webpack-plugin": "^5.3.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "4.7.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/scripts/testMock.js",
+      "\\.(css|less)$": "<rootDir>/scripts/testMock.js"
+    }
+  }
+}
