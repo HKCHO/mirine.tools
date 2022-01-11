@@ -5,16 +5,6 @@ export {
 }
 
 /**
- * 등록번호 타입
- *
- * @private
- */
-export const RegNoTypes = {
-    RRN: 'rrn',     // 주민등록번호
-    FRN: 'frn',     // 외국인등록번호
-}
-
-/**
  * 주민등록번호 또는 외국인등록번호인지 확인.
  *
  * @method
@@ -39,7 +29,17 @@ function validateRegistrationNumber(registrationNo, type) {
     // 외국인등록번호 매치
     const frnMatch = (13-(checkSum%11))%10 == rn.substr(12,1);
 
-    if( type === 'rrn' ) return rrnMatch;
-    else if( type === 'frn' ) return frnMatch;
+    if( type === RegNoTypes.RRN ) return rrnMatch;
+    else if( type === RegNoTypes.FRN ) return frnMatch;
     else return rrnMatch || frnMatch;
+}
+
+/**
+ * 등록번호 타입
+ *
+ * @private
+ */
+export const RegNoTypes = {
+    RRN: 'rrn',     // 주민등록번호
+    FRN: 'frn',     // 외국인등록번호
 }

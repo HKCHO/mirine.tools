@@ -6,6 +6,11 @@ import {RegNoTypes, validateRegistrationNumber} from "./registration-no";
  */
 class Saram {
     /**
+     * @hideconstructor
+     */
+    constructor() { throw '[Mirine.Saram] 인스턴스화 할 수 없습니다.'; }
+
+    /**
      * 주민등록번호 또는 외국인등록번호인지 확인.
      *
      * @method
