@@ -8,7 +8,7 @@
     "build": "webpack",
     "build:demo": "webpack --config webpack.config.demo.js",
     "test": "jest",
-    "doc": "jsdoc -c jsdoc.json",
+    "doc": "jsdoc -c jsdoc.json -R README.md",
     "prepare": "npm run build",
     "trypublish": "npm publish || true"
   },
