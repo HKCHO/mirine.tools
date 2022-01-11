@@ -1,21 +1,44 @@
+import {RegNoTypes, validateRegistrationNumber} from "./registration-no";
 
-
-
+/**
+ * 사람과 관련된 도구모음
+ *
+ */
 class Saram {
-    constructor() {
-        console.log("사람 관련 도구.")
+    /**
+     * 주민등록번호 또는 외국인등록번호인지 확인.
+     *
+     * @method
+     * @public
+     * @param {string} registrationNo 주민 또는 외국인 등록번호
+     * @returns {boolean} 주민/외국인 번호의 유효성
+     */
+     static isRegistrationNo(registrationNo) {
+        return validateRegistrationNumber(registrationNo);
     }
 
     /**
-     * 주민|외국인 번호 유효성 검사
-     * @param rn 주민|외국인 번호
-     * @returns {boolean} 유효성
+     * 주민등록번호 여부 확인.
+     *
+     * @method
+     * @public
+     * @param {string} registrationNo 주민등록번호
+     * @returns {boolean} 주민등록번호 유효성
      */
-    isRegistrationNum = (rn) => {
-        if( !rn ) return false;
-        console.log("rn: ", rn);
+    static isJuminRegistrationNo(registrationNo) {
+        return validateRegistrationNumber(registrationNo, RegNoTypes.RRN);
+    }
 
-        return true;
+    /**
+     * 외국인등록번호 여부 확인.
+     *
+     * @method
+     * @public
+     * @param {string} registrationNo 외국인등록번호
+     * @returns {boolean} 외국인등록번호 유효성
+     */
+    static isForeignRegistrationNo(registrationNo) {
+        return validateRegistrationNumber(registrationNo, RegNoTypes.FRN);
     }
 }
 
