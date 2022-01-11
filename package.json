@@ -8,6 +8,7 @@
     "build": "webpack",
     "build:demo": "webpack --config webpack.config.demo.js",
     "test": "jest",
+    "doc": "jsdoc -c jsdoc.json",
     "prepare": "npm run build",
     "trypublish": "npm publish || true"
   },
@@ -41,6 +42,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.4.7",
+    "jsdoc": "^3.6.7",
     "prettier": "^2.5.1",
     "prettier-webpack-plugin": "^1.2.0",
     "standard-version": "^9.3.2",
