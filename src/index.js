@@ -1,7 +1,9 @@
-import Saram from "./lib/saram";
+import {saram} from "./lib/saram";
 
 const mirine = {
-  saram: Saram,
+    saram
 };
 
 export default mirine;
+
+export {saram};

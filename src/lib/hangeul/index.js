@@ -1,6 +1,7 @@
 /**
  * 한글관련 도구모음
- * @type {{}}
+ *
+ * @namespace Hangeul
  */
 const hangeul = {
 
