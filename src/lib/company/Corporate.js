@@ -1,9 +1,18 @@
 /**
  * 법인 정보
+ *
+ * @since 1.0.0
+ *
+ * @author hkcho
  */
 class Corporate {
 
-    /** 법인종류 */
+    /**
+     * 법인종류
+     *
+     * @readonly
+     * @constant
+     */
     static types = {
         /** 상법법인 */
         COMMERCIAL: {
@@ -27,7 +36,12 @@ class Corporate {
         }
     }
 
-    /** 법률근거 */
+    /**
+     * 법률근거
+     *
+     * @readonly
+     * @constant
+     */
     static legalBasis = {
         /** 상법 */
         COMMERCIAL: {
@@ -163,9 +177,16 @@ class Corporate {
         }
     }
 
-    /** 법인 분류 */
+    /**
+     * 법인 분류
+     *
+     * @readonly
+     * @constant
+     */
     static category = {
-        /** 주식회사 */
+        /**
+         * 주식회사
+         */
         CORPORATION: {
             no: 11,
             value: "corporation",
@@ -258,10 +279,36 @@ class Corporate {
             label: "특수농업협동조합(양잠협동조합)",
             legalBasis: Corporate.legalBasis.ALPC_COOP
         },
-        /** 농업협동조합중앙회 36 */
-        /** 지역별축산업협동조합 37 */
-        /** 업종별축산업협동조합 37 */
-        /** 축산업협동조합중앙회 37 */
+        /** 농업협동조합중앙회 */
+        ALPC_COOP_CENTER: {
+            no: 36,
+            value: "alpc_coop_center",
+            label: "농업협동조합중앙회",
+            legalBasis: Corporate.legalBasis.ALPC_COOP
+        },
+
+        /** 지역별축산업협동조합 */
+        PROVINCE_LIVESTOCK_COOP: {
+            no: 37,
+            value: "province_livestock_coop",
+            label: "지역별축산업협동조합",
+            legalBasis: Corporate.legalBasis.LIVESTOCK_COOP
+        },
+        /** 업종별축산업협동조합 */
+        LIVESTOCK_COOP_BY_BIZ: {
+            no: 37,
+            value: "livestock_coop_by_biz",
+            label: "업종별축산업협동조합",
+            legalBasis: Corporate.legalBasis.LIVESTOCK_COOP
+        },
+        /** 축산업협동조합중앙회 */
+        LIVESTOCK_COOP_CENTER: {
+            no: 37,
+            value: "livestock_coop_center",
+            label: "축산업협동조합중앙회",
+            legalBasis: Corporate.legalBasis.LIVESTOCK_COOP
+        },
+
         /** 지역별수산업협동조합 38 */
         /** 업종별수산업협동조합 38 */
         /** 수산물제조업협동조합 38 */

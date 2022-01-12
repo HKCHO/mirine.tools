@@ -85,7 +85,7 @@ export function getGender(birthYear, regno0) {
 /**
  * 확인할 수 없는 '생년', '성별숫자' 조합 알림
  *
- * @private
+ * @ignore
  * @param birthYear
  * @param regno0
  * @return {null}

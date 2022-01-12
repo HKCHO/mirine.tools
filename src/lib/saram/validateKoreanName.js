@@ -6,6 +6,7 @@
  *     - "조 현권", "", "조현권ㅏ", "조현ㄱ"              => false
  * </pre>
  *
+ * @method
  * @param name {string} 한글이름
  * @returns {boolean} 한글이름 유효성
  *

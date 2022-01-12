@@ -1,7 +1,7 @@
 /**
  * 문자관련 도구모음
  *
- * @private
+ * @ignore
  * @author hkcho
  */
 class StringUtils {
