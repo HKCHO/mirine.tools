@@ -1,6 +1,6 @@
 import {isCompanyRegistrationNo} from "./isCompanyRegistrationNo";
 import {isCorporateRegistrationNo} from "./isCorporateRegistrationNo";
-import {getCorporationType} from "./getCorporationType";
+import {getCorpType} from "./getCorpType";
 import Corporation from "./Corporation";
 /**
  * 회사관련 도구모음
@@ -13,7 +13,7 @@ export const company = {
     isCorporateRegistrationNo,
 
     /** 법인번호에서 법인분류정보 추출*/
-    getCorporationType,
+    getCorporationType: getCorpType,
 
     /** 법인 */
     Corporation

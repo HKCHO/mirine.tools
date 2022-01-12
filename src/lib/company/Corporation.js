@@ -1,7 +1,7 @@
 import {isCorporateRegistrationNo} from "./isCorporateRegistrationNo";
 
 /**
- * 법인 정보
+ * 법인
  *
  * @since 1.0.0
  *
@@ -14,9 +14,8 @@ class Corporation {
     constructor(corporationData) {
         if (typeof (corporationData) === "object") {
             // 법인 등록번호
-            if (corporationData.registrationNo) {
+            if (corporationData.registrationNo)
                 this.registrationNo = corporationData.registrationNo;
-            }
         }
     }
 
@@ -24,7 +23,7 @@ class Corporation {
      * 법인번호 유효성검사
      * @return {boolean} 법인번호 유효성
      */
-    isValidRegistrationNo() {
+    isValidCorpRegistrationNo() {
         return isCorporateRegistrationNo(this.registrationNo);
     }
 
@@ -32,13 +31,15 @@ class Corporation {
      * 법인종류 조회
      */
     getType() {
-        if (!this.isValidRegistrationNo()) return null;
+        if (!this.isValidCorpRegistrationNo()) return null;
 
         // 법인종류별 분류번호 추출
         const categoryNo = extractCategoryNo(this.registrationNo);
 
+        // 법인종류
         let type = null;
 
+        // 분류번호로 법인종류 찾기
         for (const categoryNm of Object.keys(Corporation.category)) {
             const category = Corporation.category[categoryNm];
             if (categoryNo === category.no) {
@@ -47,6 +48,29 @@ class Corporation {
             }
         }
         return type;
+    }
+
+    /**
+     * 법률근거 조회
+     */
+    getLegalBasis() {
+        if (!this.isValidCorpRegistrationNo()) return null;
+
+        // 법인종류별 분류번호 추출
+        const categoryNo = extractCategoryNo(this.registrationNo);
+
+        // 법률근거
+        let legalBasis = null;
+
+        // 분류번호로 법률근거 찾기
+        for (const categoryNm of Object.keys(Corporation.category)) {
+            const category = Corporation.category[categoryNm];
+            if (categoryNo === category.no) {
+                legalBasis = category.legalBasis;
+                break;
+            }
+        }
+        return legalBasis;
     }
 
     /**
@@ -699,9 +723,16 @@ class Corporation {
     }
 }
 
-export default Corporation;
-
+/**
+ * 법인종류별 분류번호 추출
+ *
+ * @private
+ * @function
+ * @param registrationNo    법인번호
+ * @return {string}         법인종류별 분류번호
+ */
 function extractCategoryNo(registrationNo) {
     return registrationNo.substr(4, 2) >> 0;
 }
 
+export default Corporation;
