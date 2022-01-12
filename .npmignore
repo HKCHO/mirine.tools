@@ -23,6 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # Development folders and files
+.idea
+.project
 public
 src
 scripts
