@@ -1,5 +1,6 @@
 import {RegNoTypes, validateRegistrationNumber} from "./registrationNo";
 import {validateKoreanName} from "./validateKoreanName";
+import {getGender} from "./getGender";
 
 /**
  * 사람과 관련된 도구모음
@@ -8,6 +9,7 @@ export const saram = {
     isRegistrationNo,
     isJuminRegistrationNo,
     isForeignRegistrationNo,
+    getGender,
     validateKoreanName,
 };
 
@@ -39,4 +41,15 @@ function isJuminRegistrationNo(registrationNo) {
  */
 function isForeignRegistrationNo(registrationNo) {
     return validateRegistrationNumber(registrationNo, RegNoTypes.FRN);
+}
+
+/**
+ * 주민등록번호상 성별
+ * @type {{MALE: string, FEMALE: string}}
+ */
+export const Gender = {
+    /** 여성 */
+    FEMALE: 'F',
+    /** 남성 */
+    MALE: 'M'
 }
