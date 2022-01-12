@@ -3,9 +3,26 @@ import StringUtils from "../utils/string-utils";
 
 /**
  * 주민/외국인 등록번호상 '생년'과 주민등록번호 뒷자리 첫번째 수로 성별을 확인합니다.
+ * - 확인할 수 없는 조합의 경우 `null`을 반환합니다
+ *
+ * <i>[올바른 사용]</i>
+ * <pre>
+ *     saram.getGender(1988, 1)
+ *     saram.getGender('1988', '1')
+ * </pre>
+ *
+ * <i>[잘못된 사용]</i>
+ * <pre>
+ *     saram.getGender(88, 1)
+ *     saram.getGender('88', '1')
+ *     saram.getGender('88', '312')
+ * </pre>
  *
  * @param {string | number} birthYear 생년
  * @param {string | number} regno0 성별 숫자
+ * @return {string|null} 남성: 'M', 여성: 'F', 알 수 없음: null
+ *
+ * @author hkcho
  */
 export function getGender(birthYear, regno0) {
     // 올바르지 않은 생년 - 숫자형태의 문자열이 아닐경우
