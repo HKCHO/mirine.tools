@@ -1,5 +1,7 @@
 import mirine from "../../index";
 import {saram} from "../saram";
+import {REGEX_COMPLETE_KOREAN} from "../utils/string-utils";
+import {validateKoreanName} from "../saram/validateKoreanName";
 
 
 test('사람 도구 기능검사', () => {
@@ -20,7 +22,12 @@ test('사람 도구 기능검사', () => {
 });
 
 test('한글 도구 기능검사', () => {
-
+/*
+    // 한글이름 유효성검사
+    const name = "조현권";
+    const validKoreanName = validateKoreanName(name)
+    console.log(`[${name}] 올바른 한글이름? `, validKoreanName);
+*/
 })
 
 test('사업자 도구 기능검사', () => {
@@ -30,21 +37,22 @@ test('사업자 도구 기능검사', () => {
     console.log(`validCompanyRegistrationNo: ${validCompanyRegistrationNo}`);
 */
 /*
-    // 법인 등록번호 검사 - 1
+    // 법인 등록번호 검사
     const validCorporateRegistrationNo = mirine.company.isCorporateRegistrationNo("2811110093514");
     console.log(`법인번호 유효성: ${validCorporateRegistrationNo}`);
 */
 /*
-    // 법인번호에서 법인종류 확인 - 1
-    const corporateDat = mirine.company.getCorporationType("2811110093514");
-    console.log("법인종류 : ", corporateDat)
+    // 법인번호에서 법인종류 가져오기
+    const corpType = mirine.company.getCorporationType("2811110093514");
+    console.log("법인종류 : ", corpType)
 */
 /*
-    // 법인번호에서 법인종류 확인 - 2
+    // 법인정보 확인
     const corporate = new mirine.company.Corporation({
         registrationNo: "2811110093514"
     });
-    console.log("법인번호 유효성 : ", corporate.isValidRegistrationNo());
+    console.log("법인번호 유효성 : ", corporate.isValidCorpRegistrationNo());
     console.log("법인종류: ", corporate.getType());
+    console.log("법률근거: ", corporate.getLegalBasis());
 */
 })

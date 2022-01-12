@@ -11,6 +11,8 @@ class StringUtils {
      * 알파벳과 숫자로 이루어져 있는지 검사
      *
      * @param {string} str 검사할 문자열
+     *
+     * @author hkcho
      */
     static isAlphaNumeric(str) {
         if (/\s/g.test(str) || /[^a-zA-Zs0-9]/g.test(str)) {
@@ -24,6 +26,8 @@ class StringUtils {
      * 숫자 형식의 문자열인지 검사
      *
      * @param {string | number} str 검사할 문자열
+     *
+     * @author hkcho
      */
     static isNumeric(str) {
         if (typeof str !== "string") return false;
@@ -32,3 +36,6 @@ class StringUtils {
 }
 
 export default StringUtils;
+
+// 완성형 한글 정규식
+export const REGEX_COMPLETE_KOREAN = /^[가-힣]+$/;
