@@ -1,4 +1,4 @@
-import Corporate from "./Corporate";
+import Corporation from "./Corporation";
 import {isCorporateRegistrationNo} from "./isCorporateRegistrationNo";
 
 /**
