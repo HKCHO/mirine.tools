@@ -1,6 +1,6 @@
 {
   "name": "mirine.tools",
-  "version": "0.0.2-dev.1",
+  "version": "0.0.2",
   "description": "한국인 개발자가 자주 사용하는 자바스크립트 도구 모음",
   "main": "build/index.js",
   "scripts": {
