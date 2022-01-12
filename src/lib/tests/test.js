@@ -30,13 +30,21 @@ test('사업자 도구 기능검사', () => {
     console.log(`validCompanyRegistrationNo: ${validCompanyRegistrationNo}`);
 */
 /*
-    // 법인 등록번호 검사
+    // 법인 등록번호 검사 - 1
     const validCorporateRegistrationNo = mirine.company.isCorporateRegistrationNo("2811110093514");
-    console.log(`validCorporateRegistrationNo: ${validCorporateRegistrationNo}`);
+    console.log(`법인번호 유효성: ${validCorporateRegistrationNo}`);
 */
 /*
-    // 법인번호에서 법인정보 추출
-    const corporateDat = mirine.company.getCorporateClassInfo("2811110093514");
-    console.log("corporateDat", corporateDat);
+    // 법인번호에서 법인종류 확인 - 1
+    const corporateDat = mirine.company.getCorporationType("2811110093514");
+    console.log("법인종류 : ", corporateDat)
+*/
+/*
+    // 법인번호에서 법인종류 확인 - 2
+    const corporate = new mirine.company.Corporation({
+        registrationNo: "2811110093514"
+    });
+    console.log("법인번호 유효성 : ", corporate.isValidRegistrationNo());
+    console.log("법인종류: ", corporate.getType());
 */
 })

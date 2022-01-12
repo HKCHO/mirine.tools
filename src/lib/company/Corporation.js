@@ -1,3 +1,5 @@
+import {isCorporateRegistrationNo} from "./isCorporateRegistrationNo";
+
 /**
  * 법인 정보
  *
@@ -6,6 +8,46 @@
  * @author hkcho
  */
 class Corporation {
+    /** 법인번호 */
+    registrationNo = null;
+
+    constructor(corporationData) {
+        if (typeof (corporationData) === "object") {
+            // 법인 등록번호
+            if (corporationData.registrationNo) {
+                this.registrationNo = corporationData.registrationNo;
+            }
+        }
+    }
+
+    /**
+     * 법인번호 유효성검사
+     * @return {boolean} 법인번호 유효성
+     */
+    isValidRegistrationNo() {
+        return isCorporateRegistrationNo(this.registrationNo);
+    }
+
+    /**
+     * 법인종류 조회
+     */
+    getType() {
+        if (!this.isValidRegistrationNo()) return null;
+
+        // 법인종류별 분류번호 추출
+        const categoryNo = extractCategoryNo(this.registrationNo);
+
+        let type = null;
+
+        for (const categoryNm of Object.keys(Corporation.category)) {
+            const category = Corporation.category[categoryNm];
+            if (categoryNo === category.no) {
+                type = category.type;
+                break;
+            }
+        }
+        return type;
+    }
 
     /**
      * 법인종류
@@ -33,6 +75,11 @@ class Corporation {
         FOREIGN: {
             value: "foreign",
             label: "외국법인"
+        },
+        /** 기타법인 */
+        ETC: {
+            value: "etc",
+            label: "기타"
         }
     }
 
@@ -47,133 +94,133 @@ class Corporation {
         COMMERCIAL: {
             value: "commercial",
             label: "상법",
-            types: Corporation.types.COMMERCIAL
+            type: Corporation.types.COMMERCIAL
         },
         /** 민법 */
         CIVIL: {
             value: "civil",
             label: "민법",
-            types: Corporation.types.CIVIL
+            type: Corporation.types.CIVIL
         },
         /** 사립학교법 */
         PRIVATE_SCHOOL: {
             value: "private_school",
             label: "사립학교법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 사회복지사법 */
         SOCIAL_WORKER: {
             value: "social_worker",
             label: "사회복지사법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 의료법 */
         MEDICAL: {
             value: "medical",
             label: "의료법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 공인회계사법 */
         CERTIFIED_ACCOUNTANT: {
             value: "certified_accountant",
             label: "공인회계사법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 한국은행법등 */
         BANK_OF_KOREA: {
             value: "bank_of_korea",
             label: "한국은행법등",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 농업협동조합법 */
         ALPC_COOP: {
             value: "agricultural_cooperatives",
             label: "농업협동조합법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 축산업협동조합법 */
         LIVESTOCK_COOP: {
             value: "livestock_cooperatives",
             label: "축산업협동조합법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 수산업협동조합법 */
         FISHERIES_COOP: {
             value: "fisheries_cooperatives",
             label: "수산업협동조합법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 산림조합법 */
         FORESTRY_COOP: {
             value: "forestry_cooperatives",
             label: "산림조합법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 중소기업협동조합법 */
         SMALL_MEDIUM_ENTERPRISE_COOP: {
             value: "small_and_medium_enterprise_cooperatives",
             label: "중소기업협동조합법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 신용협동조합법 */
         CREDIT_COOP: {
             value: "credit_cooperatives",
             label: "신용협동조합법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 농촌근대화촉진법 */
         ALPC_CMTY_MODERN_PROMO: {
             value: "agricultural_community_modernization_promotion",
             label: "농촌근대화촉진법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 노동조합법 */
         LABOR_UNION: {
             value: "labor_union",
             label: "노동조합법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 새마을금고법 */
         CMTY_CREDIT_COOP: {
             value: "community_credit_cooperatives",
             label: "새마을금고법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 의료보험조합법 */
         MEDICAL_INS_ASSOC: {
             value: "medical_insurance_association",
             label: "의료보험조합법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 변호사법 */
         ATTORNEYS: {
             value: "attorneys_at_law",
             label: "변호사법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 상공회의소법 */
         CHAMBERS_OF_COMM_N_IND: {
             value: "chambers_of_commerce_and_industry",
             label: "상공회의소법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 상호신용금고법 */
         MUTUAL_SAVINGS_N_FIN_CO: {
             value: "mutual_savings_and_finance_company",
             label: "상호신용금고법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 자동차운수사업법 */
         AUTO_TRANS_BIZ: {
             value: "automobile_transport_business",
             label: "자동차운수사업법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         },
         /** 공업협동조합법 */
         MANUFACTURING_IND_COOP: {
             value: "manufacturing_industry_cooperatives",
             label: "공업협동조합법",
-            types: Corporation.types.SPECIAL
+            type: Corporation.types.SPECIAL
         }
     }
 
@@ -191,7 +238,7 @@ class Corporation {
             no: 11,
             value: "corporation",
             label: "주식회사",
-            types: Corporation.types.COMMERCIAL,
+            type: Corporation.types.COMMERCIAL,
             legalBasis: Corporation.legalBasis.COMMERCIAL
         },
         /** 합명회사 */
@@ -199,7 +246,7 @@ class Corporation {
             no: 12,
             value: "unlimited",
             label: "합명회사",
-            types: Corporation.types.COMMERCIAL,
+            type: Corporation.types.COMMERCIAL,
             legalBasis: Corporation.legalBasis.COMMERCIAL
         },
         /** 합자회사 */
@@ -207,7 +254,7 @@ class Corporation {
             no: 13,
             value: "partnership",
             label: "합자회사",
-            types: Corporation.types.COMMERCIAL,
+            type: Corporation.types.COMMERCIAL,
             legalBasis: Corporation.legalBasis.COMMERCIAL
         },
         /** 유한회사 */
@@ -215,7 +262,7 @@ class Corporation {
             no: 14,
             value: "limited",
             label: "유한회사",
-            types: Corporation.types.COMMERCIAL,
+            type: Corporation.types.COMMERCIAL,
             legalBasis: Corporation.legalBasis.COMMERCIAL
         },
 
@@ -231,7 +278,7 @@ class Corporation {
             no: 22,
             value: "foundation",
             label: "재단법인",
-            types: Corporation.types.CIVIL,
+            type: Corporation.types.CIVIL,
             legalBasis: Corporation.legalBasis.CIVIL
         },
 
@@ -240,7 +287,7 @@ class Corporation {
             no: 31,
             value: "educational_foundation",
             label: "학교법인",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.PRIVATE_SCHOOL
         },
         /** 사회복지법인  */
@@ -248,7 +295,7 @@ class Corporation {
             no: 32,
             value: "social_welfare",
             label: "사회복지법인",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.SOCIAL_WORKER
         },
         /** 의료법인 */
@@ -263,7 +310,7 @@ class Corporation {
             no: 34,
             value: "accounting_firm",
             label: "회계법인",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.CERTIFIED_ACCOUNTANT
         },
         /** 특별법에 의한 은행 */
@@ -271,7 +318,7 @@ class Corporation {
             no: 35,
             value: "special_case_bank",
             label: "특별법에 의한 은행",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.BANK_OF_KOREA
         },
         /** 단위농업협동조합 */
@@ -286,7 +333,7 @@ class Corporation {
             no: 36,
             value: "unit_agricultural_cooperatives",
             label: "특수농업협동조합(양잠협동조합)",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.ALPC_COOP
         },
         /** 농업협동조합중앙회 */
@@ -294,7 +341,7 @@ class Corporation {
             no: 36,
             value: "agricultural_cooperatives_center",
             label: "농업협동조합중앙회",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.ALPC_COOP
         },
 
@@ -303,7 +350,7 @@ class Corporation {
             no: 37,
             value: "province_livestock_cooperatives",
             label: "지역별축산업협동조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.LIVESTOCK_COOP
         },
         /** 업종별축산업협동조합 */
@@ -311,7 +358,7 @@ class Corporation {
             no: 37,
             value: "livestock_cooperatives_by_business",
             label: "업종별축산업협동조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.LIVESTOCK_COOP
         },
         /** 축산업협동조합중앙회 */
@@ -319,7 +366,7 @@ class Corporation {
             no: 37,
             value: "livestock_cooperatives_center",
             label: "축산업협동조합중앙회",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.LIVESTOCK_COOP
         },
 
@@ -328,7 +375,7 @@ class Corporation {
             no: 38,
             value: "province_fisheries_cooperatives",
             label: "지역별수산업협동조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.FISHERIES_COOP
         },
         /** 업종별수산업협동조합 */
@@ -336,7 +383,7 @@ class Corporation {
             no: 38,
             value: "fisheries_cooperatives_by_biz",
             label: "업종별수산업협동조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.FISHERIES_COOP
         },
         /** 수산물제조업협동조합 */
@@ -344,7 +391,7 @@ class Corporation {
             no: 38,
             value: "fisheries_manufactural_cooperatives",
             label: "수산물제조업협동조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.FISHERIES_COOP
         },
         /** 수산업협동조합중앙회 */
@@ -352,7 +399,7 @@ class Corporation {
             no: 38,
             value: "fisheries_cooperatives_center",
             label: "수산업협동조합중앙회",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.FISHERIES_COOP
         },
         /** 어업협동조합 */
@@ -360,7 +407,7 @@ class Corporation {
             no: 38,
             value: "fisheries_industry_cooperatives",
             label: "어업협동조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.FISHERIES_COOP
         },
         /** 어촌계 */
@@ -368,7 +415,7 @@ class Corporation {
             no: 38,
             value: "fishing_village_fraternities",
             label: "어촌계",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.FISHERIES_COOP
         },
 
@@ -377,7 +424,7 @@ class Corporation {
             no: 39,
             value: "forestry_cooperatives_center",
             label: "산림조합중앙회",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.FORESTRY_COOP
         },
         /** 산림조합 */
@@ -385,7 +432,7 @@ class Corporation {
             no: 39,
             value: "forestry_cooperatives",
             label: "산림조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.FORESTRY_COOP
         },
         /** 산림계 */
@@ -393,7 +440,7 @@ class Corporation {
             no: 39,
             value: "forest_village_fraternities",
             label: "산림계",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.FORESTRY_COOP
         },
 
@@ -402,7 +449,7 @@ class Corporation {
             no: 40,
             value: "province_small_and_medium_enterprise_cooperatives",
             label: "지역별중소기업협동조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.SMALL_MEDIUM_ENTERPRISE_COOP
         },
         /** 업종별중소기업협동조합 */
@@ -410,7 +457,7 @@ class Corporation {
             no: 40,
             value: "small_and_medium_enterprise_cooperatives_by_business",
             label: "업종별중소기업협동조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.SMALL_MEDIUM_ENTERPRISE_COOP
         },
         /** 중소기업협동조합 */
@@ -418,7 +465,7 @@ class Corporation {
             no: 40,
             value: "small_and_medium_enterprise_cooperatives",
             label: "중소기업협동조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.SMALL_MEDIUM_ENTERPRISE_COOP
         },
         /** 중소기업협동조합연합회(업종별) */
@@ -426,7 +473,7 @@ class Corporation {
             no: 40,
             value: "small_and_medium_enterprise_cooperatives_union_by_business",
             label: "중소기업협동조합연합회(업종별)",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.SMALL_MEDIUM_ENTERPRISE_COOP
         },
         /** 중소기업협동조합중앙회 */
@@ -434,7 +481,7 @@ class Corporation {
             no: 40,
             value: "small_and_medium_enterprise_cooperatives_center",
             label: "중소기업협동조합중앙회",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.SMALL_MEDIUM_ENTERPRISE_COOP
         },
 
@@ -443,7 +490,7 @@ class Corporation {
             no: 41,
             value: "credit_cooperatives",
             label: "신용협동조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.CREDIT_COOP
         },
         /** 신용협동조합연합회 */
@@ -451,7 +498,7 @@ class Corporation {
             no: 41,
             value: "credit_cooperatives_union",
             label: "신용협동조합연합회",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.CREDIT_COOP
         },
 
@@ -460,7 +507,7 @@ class Corporation {
             no: 42,
             value: "farmland_improvement_cooperatives",
             label: "농지개량조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.ALPC_CMTY_MODERN_PROMO
         },
         /** 농지개량조합연합회 */
@@ -468,7 +515,7 @@ class Corporation {
             no: 42,
             value: "farmland_improvement_cooperatives_union",
             label: "농지개량조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.ALPC_CMTY_MODERN_PROMO
         },
         /** 농업진흥공사 */
@@ -476,7 +523,7 @@ class Corporation {
             no: 42,
             value: "agricultural_development_corporation",
             label: "농업진흥공사",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.ALPC_CMTY_MODERN_PROMO
         },
 
@@ -485,7 +532,7 @@ class Corporation {
             no: 43,
             value: "labor_union",
             label: "노동조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.LABOR_UNION
         },
 
@@ -494,7 +541,7 @@ class Corporation {
             no: 44,
             value: "community_credit_cooperatives",
             label: "새마을금고(마을금고)",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.CMTY_CREDIT_COOP
         },
         /** 새마을금고연합회 */
@@ -502,7 +549,7 @@ class Corporation {
             no: 44,
             value: "community_credit_cooperatives_union",
             label: "새마을금고(마을금고)",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.CMTY_CREDIT_COOP
         },
 
@@ -511,7 +558,7 @@ class Corporation {
             no: 45,
             value: "medical_insurance_association",
             label: "의료보험조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.MEDICAL_INS_ASSOC
         },
 
@@ -520,7 +567,7 @@ class Corporation {
             no: 46,
             value: "law_firm",
             label: "법무법인",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.ATTORNEYS
         },
 
@@ -529,7 +576,7 @@ class Corporation {
             no: 47,
             value: "chambers_of_commerce_and_industry",
             label: "상공회의소",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.CHAMBERS_OF_COMM_N_IND
         },
 
@@ -538,7 +585,7 @@ class Corporation {
             no: 48,
             value: "mutual_savings_and_finance_company",
             label: "상호신용금고",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.MUTUAL_SAVINGS_N_FIN_CO
         },
         /** 상호신용금고연합회 */
@@ -546,7 +593,7 @@ class Corporation {
             no: 48,
             value: "mutual_savings_and_finance_company_union",
             label: "상호신용금고연합회",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.MUTUAL_SAVINGS_N_FIN_CO
         },
         /** 상호신용보증기금 */
@@ -554,7 +601,7 @@ class Corporation {
             no: 48,
             value: "mutual_credit_guarantee_fund",
             label: "상호신용보증기금",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.MUTUAL_SAVINGS_N_FIN_CO
         },
 
@@ -563,7 +610,7 @@ class Corporation {
             no: 49,
             value: "automobile_transport_business_association",
             label: "자동차운송사업조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.AUTO_TRANS_BIZ
         },
         /** 자동차운송사업연합회 */
@@ -571,7 +618,7 @@ class Corporation {
             no: 49,
             value: "automobile_transport_business_union",
             label: "자동차운송사업연합회",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.AUTO_TRANS_BIZ
         },
 
@@ -580,7 +627,7 @@ class Corporation {
             no: 50,
             value: "unit_industry_cooperatives",
             label: "단위공업협동조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.MANUFACTURING_IND_COOP
         },
         /** 특수공업협동조합 */
@@ -588,7 +635,7 @@ class Corporation {
             no: 50,
             value: "special_industry_cooperatives",
             label: "특수공업협동조합",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.MANUFACTURING_IND_COOP
         },
         /** 공업협동조합중앙회 */
@@ -596,7 +643,7 @@ class Corporation {
             no: 50,
             value: "industry_cooperatives_center",
             label: "공업협동조합중앙회",
-            types: Corporation.types.SPECIAL,
+            type: Corporation.types.SPECIAL,
             legalBasis: Corporation.legalBasis.MANUFACTURING_IND_COOP
         },
 
@@ -605,7 +652,7 @@ class Corporation {
             no: 71,
             value: "uncategorized_corporation",
             label: "분류할 수 없는 법인",
-            types: null,
+            type: Corporation.types.ETC,
             legalBasis: null
         },
 
@@ -614,7 +661,7 @@ class Corporation {
             no: 81,
             value: "foreign_corporation",
             label: "주식회사",
-            types: Corporation.types.FOREIGN,
+            type: Corporation.types.FOREIGN,
             legalBasis: null
         },
         /** 외국 합명회사 */
@@ -622,7 +669,7 @@ class Corporation {
             no: 82,
             value: "foreign_unlimited",
             label: "합명회사",
-            types: Corporation.types.FOREIGN,
+            type: Corporation.types.FOREIGN,
             legalBasis: null
         },
         /** 외국 합자회사 */
@@ -630,7 +677,7 @@ class Corporation {
             no: 83,
             value: "foreign_partnership",
             label: "합자회사",
-            types: Corporation.types.FOREIGN,
+            type: Corporation.types.FOREIGN,
             legalBasis: null
         },
         /** 외국 유한회사 */
@@ -638,7 +685,7 @@ class Corporation {
             no: 84,
             value: "foreign_limited",
             label: "유한회사",
-            types: Corporation.types.FOREIGN,
+            type: Corporation.types.FOREIGN,
             legalBasis: null
         },
         /** 외국 기타 */
@@ -646,11 +693,15 @@ class Corporation {
             no: 85,
             value: "foreign_other",
             label: "기타",
-            types: Corporation.types.FOREIGN,
+            type: Corporation.types.FOREIGN,
             legalBasis: null
         }
     }
 }
 
 export default Corporation;
+
+function extractCategoryNo(registrationNo) {
+    return registrationNo.substr(4, 2) >> 0;
+}
 
