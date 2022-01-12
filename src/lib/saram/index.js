@@ -1,16 +1,14 @@
-import {RegNoTypes, validateRegistrationNumber} from "./registration-no";
+import {RegNoTypes, validateRegistrationNumber} from "./registrationNo";
 
 /**
  * 사람과 관련된 도구모음
- *
- * @namespace Saram
  */
 export const saram = {
     isRegistrationNo,
     isJuminRegistrationNo,
     isForeignRegistrationNo,
-    validateKoreanName
-}
+    validateKoreanName,
+};
 
 /**
  * 주민등록번호 또는 외국인등록번호인지 확인.
