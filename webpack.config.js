@@ -27,7 +27,7 @@ module.exports = {
     devtool: 'source-map',
     entry: './src/index.js',
     output: {
-        filename: 'index.js',
+        filename: 'mirine.tool.min.js',
         path: path.resolve(__dirname, 'build'),
         library: 'Mirine',
         libraryTarget: 'umd',
