@@ -8,12 +8,17 @@
       "experimentalObjectRestSpread": true
     }
   },
-  "plugins": [],
-  "extends": ["eslint:recommended", "airbnb"],
+  "plugins": ["prettier"],
+  "extends": ["eslint:recommended", "airbnb", "prettier"],
   "rules": {
+    "prettier/prettier": ["error"],
     "comma-dangle": 0,
+    "no-bitwise": "off",
+    "no-cycle": "off",
+    "no-plusplus": "off",
     "no-unused-vars": "warn",
     "no-unexpected-multiline": "warn",
+    "no-use-before-define": "off",
     "prefer-const": "warn"
   },
   "settings": {},
