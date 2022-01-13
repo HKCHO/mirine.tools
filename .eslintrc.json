@@ -9,9 +9,9 @@
     }
   },
   "plugins": ["prettier"],
-  "extends": ["eslint:recommended", "airbnb", "prettier"],
+  "extends": ["airbnb", "prettier"],
   "rules": {
-    "prettier/prettier": ["error"],
+    "prettier/prettier": ["error", { "singleQuote": true }],
     "comma-dangle": 0,
     "no-bitwise": "off",
     "no-cycle": "off",
