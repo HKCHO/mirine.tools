@@ -9,7 +9,7 @@
     }
   },
   "plugins": [],
-  "extends": ["eslint:recommended"],
+  "extends": ["eslint:recommended", "airbnb"],
   "rules": {
     "comma-dangle": 0,
     "no-unused-vars": "warn",
