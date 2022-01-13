@@ -2,7 +2,8 @@ node_modules
 package-lock.json
 .vscode
 .DS_Store
-/build
+build
+dist
 
 # `IDEA` efault ignored files
 .idea
