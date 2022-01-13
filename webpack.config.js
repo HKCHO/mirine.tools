@@ -4,9 +4,7 @@ const PrettierPlugin = require('prettier-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const getPackageJson = require('./scripts/getPackageJson');
 
-const {
-  version, name, license, repository, author
-} = getPackageJson(
+const { version, name, license, repository, author } = getPackageJson(
   'version',
   'name',
   'license',
@@ -18,10 +16,9 @@ const banner = `
   ${name} v${version}
   ${repository.url}
 
-  Copyright (c) ${author.replace(/ *<[^)]*> */g, ' ')} and project contributors.
+  Copyright (c) ${author.replace(/ *<[^)]*> */g, ' ')} 그리고 프로젝트 기여자.
 
-  This source code is licensed under the ${license} license found in the
-  LICENSE file in the root directory of this source tree.
+  이 소스코드는 루트 디렉터리에 있는 'LICENSE' 파일에 명시된 '${license}' 라이센스에 따라 라이센스가 부여됩니다.
 `;
 
 module.exports = {
