@@ -1,5 +1,5 @@
-import {numberToGisusa} from "./numberToGisusa";
+import numberToGisusa from './numberToGisusa';
 
-export const susa = {
-    numberToGisusa,
-}
+export default {
+  numberToGisusa,
+};

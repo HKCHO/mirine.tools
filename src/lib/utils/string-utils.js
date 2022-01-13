@@ -6,7 +6,8 @@
  */
 class StringUtils {
   constructor() {
-    throw "인스턴스화 할 수 없습니다.";
+    // eslint-disable-next-line no-throw-literal
+    throw '인스턴스화 할 수 없습니다.';
   }
 
   /**
@@ -19,9 +20,8 @@ class StringUtils {
   static isAlphaNumeric(str) {
     if (/\s/g.test(str) || /[^a-zA-Z0-9]/g.test(str)) {
       return false;
-    } else {
-      return /[\w\d]/g.test(str);
     }
+    return /[\w\d]/g.test(str);
   }
 
   /**
@@ -32,8 +32,8 @@ class StringUtils {
    * @author hkcho
    */
   static isNumeric(str) {
-    if (typeof str !== "string") return false;
-    return !isNaN(str) && !isNaN(parseFloat(str));
+    if (typeof str !== 'string') return false;
+    return !Number.isNaN(str) && !Number.isNaN(parseFloat(str));
   }
 }
 

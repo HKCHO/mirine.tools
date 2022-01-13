@@ -15,6 +15,6 @@
  *
  * @author hkcho
  */
-export function numberToGisusa(number) {
-    return "example";
+export default function numberToGisusa(number) {
+  return 'example';
 }

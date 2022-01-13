@@ -1,2 +1,1 @@
-
-export const josa = {}
+export default {};

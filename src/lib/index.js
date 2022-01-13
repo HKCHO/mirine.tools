@@ -1,6 +1,6 @@
-import { saram } from "./saram";
-import { company } from "./company";
-import { hangeul } from "./hangeul";
+import saram from './saram';
+import { company } from './company';
+import hangeul from './hangeul';
 
 const mirine = {
   saram,
