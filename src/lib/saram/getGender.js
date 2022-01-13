@@ -20,7 +20,7 @@ import StringUtils from '../utils/string-utils';
  *
  * @param {string | number} birthYear 생년
  * @param {string | number} regno0 성별 숫자
- * @return {string|null} 남성: 'M', 여성: 'F', 알 수 없음: null
+ * @return {string | null} 남성: 'M', 여성: 'F', 알 수 없음: null
  *
  * @author hkcho
  */
@@ -31,7 +31,7 @@ export default function getGender(birthYear, regno0) {
   }
 
   // 올바르지 않은 생년 - 4자리 수가 아닐경우
-  if ((`${birthYear}`).length !== 4) {
+  if (`${birthYear}`.length !== 4) {
     return null;
   }
 
@@ -40,7 +40,9 @@ export default function getGender(birthYear, regno0) {
 
   // 올바르지 않은 성별 번호
   if (
-    typeof regno0 === 'undefined' || regno0 === null || (`${regno0}`).trim().length === 0
+    typeof regno0 === 'undefined' ||
+    regno0 === null ||
+    `${regno0}`.trim().length === 0
   ) {
     return null;
   }
@@ -55,35 +57,39 @@ export default function getGender(birthYear, regno0) {
 
   // 1900년 이전 출생자 ( ~ 1899년)
   if (bYear < 1900) {
-    if (r0 === 9) return Gender.MALE;
     // 한국남성
-    if (r0 === 0) return Gender.FEMALE;
+    if (r0 === 9) return Gender.MALE;
     // 한국여성
+    if (r0 === 0) return Gender.FEMALE;
+
     return null;
   }
+
   // 1900년대 출생자 (1900년 ~ 1999년)
   if (bYear >= 1900 && bYear < 2000) {
-    if (r0 === 1) return Gender.MALE;
     // 한국남성
-    if (r0 === 2) return Gender.FEMALE;
+    if (r0 === 1) return Gender.MALE;
     // 한국여성
-    if (r0 === 5) return Gender.MALE;
+    if (r0 === 2) return Gender.FEMALE;
     // 외국남성
-    if (r0 === 6) return Gender.FEMALE;
+    if (r0 === 5) return Gender.MALE;
     // 외국여성
+    if (r0 === 6) return Gender.FEMALE;
     return null;
   }
+
   // 2000년대 출생자 (2000년 ~ ). 2100년에 업데이트가 필요합니다.
   if (bYear >= 2000) {
-    if (r0 === 3) return Gender.MALE;
     // 한국남성
-    if (r0 === 4) return Gender.FEMALE;
+    if (r0 === 3) return Gender.MALE;
     // 한국여성
-    if (r0 === 7) return Gender.MALE;
+    if (r0 === 4) return Gender.FEMALE;
     // 외국남성
-    if (r0 === 8) return Gender.FEMALE;
+    if (r0 === 7) return Gender.MALE;
     // 외국여성
+    if (r0 === 8) return Gender.FEMALE;
     return null;
   }
+
   return null;
 }
