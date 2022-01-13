@@ -1,4 +1,5 @@
 build/*
 docs/*
+scripts/*
+src/demo/*
 node_modules/*
-*.md
