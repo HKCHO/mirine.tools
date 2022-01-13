@@ -6,11 +6,11 @@ import {getGender} from "./getGender";
  * 사람과 관련된 도구모음
  */
 export const saram = {
-    isRegistrationNo,
-    isJuminRegistrationNo,
-    isForeignRegistrationNo,
-    getGender,
-    validateKoreanName,
+    isRegistrationNo,           // 주민/외국인 등록번호 검사
+    isJuminRegistrationNo,      // 주민등록번호 검사
+    isForeignRegistrationNo,    // 외국인 등록번호 검사
+    getGender,                  // '생년', '성별숫자'로 성별 확인
+    validateKoreanName,         // 한글이름 유효성검사
 };
 
 /**
