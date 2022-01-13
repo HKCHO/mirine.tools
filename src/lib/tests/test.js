@@ -1,4 +1,4 @@
-import mirine from "../../index";
+import mirine from "../index";
 import {saram} from "../saram";
 import {REGEX_COMPLETE_KOREAN} from "../utils/string-utils";
 import {validateKoreanName} from "../saram/validateKoreanName";

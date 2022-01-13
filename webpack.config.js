@@ -25,9 +25,9 @@ const banner = `
 module.exports = {
     mode: "production",
     devtool: 'source-map',
-    entry: './src/index.js',
+    entry: './src/lib/index.js',
     output: {
-        filename: 'mirine.tool.min.js',
+        filename: 'index.js',
         path: path.resolve(__dirname, 'build'),
         library: 'Mirine',
         libraryTarget: 'umd',

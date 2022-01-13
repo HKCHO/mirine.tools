@@ -1,6 +1,6 @@
-import { saram } from "./lib/saram";
-import { company } from "./lib/company";
-import { hangeul } from "./lib/hangeul";
+import { saram } from "./saram";
+import { company } from "./company";
+import { hangeul } from "./hangeul";
 
 const mirine = {
   saram,
