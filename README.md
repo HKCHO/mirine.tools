@@ -38,6 +38,8 @@
 - ### 기타 도구
   - 이메일 주소 유효성 검사
     - [`misc.validateEmail(email)`](./src/lib/misc/validateEmail.js)
+  - URL 주소 유효성 검사
+    - [`misc.validateURL(urlStr)`](./src/lib/misc/validateURL.js)
 
 <!--- 
 ## Donate

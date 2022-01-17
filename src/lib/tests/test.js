@@ -81,4 +81,11 @@ test('기타 도구 기능검사', () => {
   const { validateEmail } = mirine.misc;
   console.log('이메일 유효성', validateEmail('eddie88cho@gmail.com'));
  */
+  /*
+  // URL 유효성검사
+  const { validateURL } = mirine.misc;
+  console.log('URL 주소 유효성 검사 1', validateURL('https://github.com/hkcho'));
+  console.log('URL 주소 유효성 검사 2', validateURL('svn://private.eddie88cho.com'));
+  console.log('URL 주소 유효성 검사 3', validateURL('mongodb://localhost:27017/db'));
+   */
 });
