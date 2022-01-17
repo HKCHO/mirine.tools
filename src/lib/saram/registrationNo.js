@@ -41,7 +41,7 @@ function validateRegistrationNumber(registrationNo, type) {
  * @name 등록번호 타입
  * @namespace RegNoTypes
  */
-export const RegNoTypes = {
+export const RegNoTypes = Object.freeze({
   /**
    * 주민등록번호
    * @memberOf RegNoTypes
@@ -54,4 +54,4 @@ export const RegNoTypes = {
    * @inner
    */
   FRN: 'frn',
-};
+});
