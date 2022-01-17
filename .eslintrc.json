@@ -13,10 +13,10 @@
   "rules": {
     "prettier/prettier": ["error", { "singleQuote": true }],
     "comma-dangle": "off",
+    "import/no-named-as-default-member": "off",
     "no-bitwise": "off",
     "no-cycle": "off",
     "no-plusplus": "off",
-    "no-named-as-default": "off",
     "no-unused-vars": "warn",
     "no-unexpected-multiline": "warn",
     "no-use-before-define": "off",
