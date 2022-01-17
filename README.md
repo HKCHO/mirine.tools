@@ -35,7 +35,9 @@
     - 숫자를 기수사로 변경 
       - [`hangeul.susa.numberToGisusa(number, [type], [spacing])`](./src/lib/hangeul/susa/numberToGisusa.js)
 
-
+- ### 기타 도구
+  - 이메일 주소 유효성 검사
+    - [`misc.validateEmail(email)`](./src/lib/misc/validateEmail.js)
 
 <!--- 
 ## Donate

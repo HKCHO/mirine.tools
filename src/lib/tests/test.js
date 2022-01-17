@@ -74,3 +74,11 @@ test('사업자 도구 기능검사', () => {
     console.log("법률근거: ", corporate.getLegalBasis());
 */
 });
+
+test('기타 도구 기능검사', () => {
+  /*
+  // 이메일 유효성검사
+  const { validateEmail } = mirine.misc;
+  console.log('이메일 유효성', validateEmail('eddie88cho@gmail.com'));
+ */
+});
