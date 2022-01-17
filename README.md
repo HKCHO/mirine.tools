@@ -23,7 +23,8 @@
   - 조사
     - *(준비 중)* 
   - 수사
-    - *(준비 중)*
+    - 숫자를 기수사로 변경 
+      - [`hangeul.susa.numberToGisusa(number, [type], [spacing])`](./src/lib/hangeul/susa/numberToGisusa.js)
 
 
 
