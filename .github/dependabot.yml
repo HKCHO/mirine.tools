@@ -1,0 +1,15 @@
+# Dependabot 설정해보기
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/" # Location of package manifests
+    # npm updates 체크를 매 주 일요일에 진행합니다.
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+    ignore:
+      - dependency-name: "*"
+        # 메이저 버전 업데이트는 위험
+        update-types: ["version-update:semver-major"]
