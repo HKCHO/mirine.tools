@@ -16,6 +16,7 @@
     "import/no-named-as-default-member": "off",
     "no-bitwise": "off",
     "no-cycle": "off",
+    "no-param-reassign": "off",
     "no-plusplus": "off",
     "no-unused-vars": "warn",
     "no-unexpected-multiline": "warn",
