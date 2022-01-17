@@ -39,8 +39,9 @@
   - 이메일 주소 유효성 검사
     - [`misc.validateEmail(email)`](./src/lib/misc/validateEmail.js)
   - URL 주소 유효성 검사
-    - [`misc.validateURL(urlStr)`](./src/lib/misc/validateURL.js)
-
+    - [`misc.validateURL(url)`](./src/lib/misc/validateURL.js)
+  - IPv4 주소 유효성 검사
+    - [`misc.validateIPv4(ipv4)`](./src/lib/misc/validateIPv4.js)
 <!--- 
 ## Donate
 - 여러분들의 도움에 큰 감사를 드리는 바입니다.

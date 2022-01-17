@@ -88,4 +88,14 @@ test('기타 도구 기능검사', () => {
   console.log('URL 주소 유효성 검사 2', validateURL('svn://private.eddie88cho.com'));
   console.log('URL 주소 유효성 검사 3', validateURL('mongodb://localhost:27017/db'));
    */
+  /*
+  // IPv4 주소 유효성 검사
+  const { validateIPv4 } = mirine.misc;
+  console.log('IPv4 유효성검사. CLASS = ALL :', validateIPv4('192.168.0.1'));
+  console.log('IPv4 유효성검사. CLASS = A :', validateIPv4('192.168.0.1', 'A'));
+  console.log('IPv4 유효성검사. CLASS = B :', validateIPv4('192.168.0.1', 'B'));
+  console.log('IPv4 유효성검사. CLASS = C :', validateIPv4('192.168.0.1', 'C'));
+  console.log('IPv4 유효성검사. CLASS = D :', validateIPv4('192.168.0.1', 'D'));
+  console.log('IPv4 유효성검사. CLASS = E :', validateIPv4('192.168.0.1', 'E'));
+   */
 });
