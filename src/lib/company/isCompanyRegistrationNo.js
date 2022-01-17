@@ -7,7 +7,7 @@ import StringUtils from '../utils/string-utils';
  * @returns {boolean} 사업자등록번호 유효성
  */
 export default function isCompanyRegistrationNo(registrationNo) {
-  const rn = (`${registrationNo}`).trim().split('-').join(''); // 하이픈(-)이 있을경우 제거
+  const rn = `${registrationNo}`.trim().split('-').join(''); // 하이픈(-)이 있을경우 제거
 
   // 사업자 등록번호 형태의 문자열이 아님
   if (!StringUtils.isNumeric(rn) || rn.length !== 10) {

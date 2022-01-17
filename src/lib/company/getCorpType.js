@@ -3,7 +3,9 @@ import Corporation from './Corporation';
 /**
  * 법인번호에서 법인종류 가져오기
  *
+ * @see Corporation#getType
  * @param registrationNo 법인번호
+ *
  * @author hkcho
  */
 export default function getCorpType(registrationNo) {

@@ -9,7 +9,7 @@ import Corporation from './Corporation';
  */
 export default function getCorpLegalBasis(registrationNo) {
   const corporation = new Corporation({
-    registrationNo
+    registrationNo,
   });
 
   // 법인등록번호 유효성 검사

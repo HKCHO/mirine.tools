@@ -4,22 +4,24 @@
 
 ## Features
 
-- #### 한국인과 관련된 정보 유효성검사
+- ### 한국인 관련 도구
   - 주민/외국인 등록번호 유효성 검사
   - 한글이름 유효성검사
-  - '태어난 해', '주민등록번호 성별숫자'로 성별 확인 기능
-  
-
-- #### 한국인과 관련된 정보 확인
-  - '태어난 연도'와 주민등록번호 뒷자리 첫째 수로 성별 확인
+  - '태어난 연도'와 '주민등록번호 뒷자리 첫째 수'로 성별 확인
+    - [`saram.getGender(birthYear, regno0)`](./src/lib/saram/getGender.js)
 
 
-- #### 기업관련 정보 유효성 검사 
+- ### 기업관련 도구  
   - '사업자 등록번호' 유효성 검사
+    - [`company.isCompanyRegistrationNo(registrationNo)`](./src/lib/company/isCompanyRegistrationNo.js)
   - '법인 번호' 유효성 검사
+    - [`company.isCorporateRegistrationNo(registrationNo)`](./src/lib/company/isCorporateRegistrationNo.js)
+  - '법인 번호'로 '법인 종류' 확인
+    - [`company.getCorpType(registrationNo)`](./src/lib/company/getCorpType.js)
+  - '법인 번호'로 '법률 근거' 확인
+    - [`company.getCorpLegalBasis(registrationNo)`](./src/lib/company/getCorpLegalBasis.js)
 
-
-- #### 한글 관련 도구
+- ### 한글 관련 도구
   - 조사
     - *(준비 중)* 
   - 수사
