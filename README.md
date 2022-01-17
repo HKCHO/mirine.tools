@@ -6,7 +6,14 @@
 
 - ### 한국인 관련 도구
   - 주민/외국인 등록번호 유효성 검사
+    - 주민/외국인 등록번호 통합 유효성검사
+      - [`saram.isRegistrationNo(registrationNo)`](./src/lib/saram/index.js)
+    - 주민 등록번호 유효성검사
+      - [`saram.isJuminRegistrationNo(registrationNo)`](./src/lib/saram/index.js)
+    - 주민 등록번호 유효성검사
+      - [`saram.isForeignRegistrationNo(registrationNo)`](./src/lib/saram/index.js)
   - 한글이름 유효성검사
+    - [`saram.validateKoreanName(name)`](./src/lib/saram/validateKoreanName.js)
   - '태어난 연도'와 '주민등록번호 뒷자리 첫째 수'로 성별 확인
     - [`saram.getGender(birthYear, regno0)`](./src/lib/saram/getGender.js)
 

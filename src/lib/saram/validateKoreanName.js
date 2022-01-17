@@ -1,7 +1,7 @@
 import { REGEX_COMPLETE_KOREAN } from '../utils/string-utils';
 
 export default {
-  validateKoreanName
+  validateKoreanName,
 };
 
 /**
@@ -13,6 +13,7 @@ export default {
  * </pre>
  *
  * @method
+ * @see REGEX_COMPLETE_KOREAN
  * @param name {string} 한글이름
  * @returns {boolean} 한글이름 유효성
  *

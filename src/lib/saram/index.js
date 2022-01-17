@@ -16,6 +16,7 @@ export default {
 /**
  * 주민등록번호 또는 외국인등록번호인지 확인.
  *
+ * @see validateRegistrationNumber
  * @param {string} registrationNo 주민 또는 외국인 등록번호
  * @returns {boolean} 주민/외국인 번호의 유효성
  */
@@ -26,6 +27,7 @@ function isRegistrationNo(registrationNo) {
 /**
  * 주민등록번호 여부 확인.
  *
+ * @see validateRegistrationNumber
  * @param {string} registrationNo 주민등록번호
  * @returns {boolean} 주민등록번호 유효성
  */
@@ -36,6 +38,7 @@ function isJuminRegistrationNo(registrationNo) {
 /**
  * 외국인등록번호 여부 확인.
  *
+ * @see validateRegistrationNumber
  * @param {string} registrationNo 외국인등록번호
  * @returns {boolean} 외국인등록번호 유효성
  */
