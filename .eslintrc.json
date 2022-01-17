@@ -12,10 +12,11 @@
   "extends": ["airbnb", "prettier"],
   "rules": {
     "prettier/prettier": ["error", { "singleQuote": true }],
-    "comma-dangle": 0,
+    "comma-dangle": "off",
     "no-bitwise": "off",
     "no-cycle": "off",
     "no-plusplus": "off",
+    "no-named-as-default": "off",
     "no-unused-vars": "warn",
     "no-unexpected-multiline": "warn",
     "no-use-before-define": "off",
