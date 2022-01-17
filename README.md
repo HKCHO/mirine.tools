@@ -10,7 +10,7 @@
       - [`saram.isRegistrationNo(registrationNo)`](https://github.com/HKCHO/mirine.tools/blob/706cc6be323fcb98a5a1bc1bb3b4d9b8dd59df38/src/lib/saram/index.js#L16-L25)
     - 주민 등록번호 유효성검사
       - [`saram.isJuminRegistrationNo(registrationNo)`](https://github.com/HKCHO/mirine.tools/blob/706cc6be323fcb98a5a1bc1bb3b4d9b8dd59df38/src/lib/saram/index.js#L27-L36)
-    - 주민 등록번호 유효성검사
+    - 외국인 등록번호 유효성검사
       - [`saram.isForeignRegistrationNo(registrationNo)`](https://github.com/HKCHO/mirine.tools/blob/706cc6be323fcb98a5a1bc1bb3b4d9b8dd59df38/src/lib/saram/index.js#L38-L47)
   - 한글이름 유효성검사
     - [`saram.validateKoreanName(name)`](./src/lib/saram/validateKoreanName.js)
