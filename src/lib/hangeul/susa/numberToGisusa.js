@@ -10,7 +10,7 @@ import {
  *
  *  참고1: [한국어 수사]{@link https://ko.wiktionary.org/wiki/%EB%B6%80%EB%A1%9D:%ED%95%9C%EA%B5%AD%EC%96%B4_%EC%88%98%EC%82%AC}
  *  참고2: [음수 한글표현]{@link https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&qna_seq=90574}
- *  참고3: [만단위 띄어쓰기]{@link https://kornorms.korean.go.kr//regltn/regltnView.do?regltn_code=0001&regltn_no=264#a264ㄱ}
+ *  참고3: [만단위 띄어쓰기]{@link https://kornorms.korean.go.kr/regltn/regltnView.do?regltn_code=0001&regltn_no=264#a264}
  *
  * <pre>
  *     minine.hangeul.susa.numberToGisusa(1)      => 일
