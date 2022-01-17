@@ -11,7 +11,6 @@
   "plugins": ["prettier"],
   "extends": ["airbnb", "prettier"],
   "rules": {
-    "prettier/prettier": ["error", { "singleQuote": true }],
     "comma-dangle": "off",
     "import/no-named-as-default-member": "off",
     "no-bitwise": "off",
@@ -21,7 +20,8 @@
     "no-unused-vars": "warn",
     "no-unexpected-multiline": "warn",
     "no-use-before-define": "off",
-    "prefer-const": "warn"
+    "prefer-const": "warn",
+    "prettier/prettier": ["error", { "singleQuote": true }]
   },
   "settings": {},
   "env": {
