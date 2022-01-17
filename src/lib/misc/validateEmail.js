@@ -7,10 +7,11 @@ export default validateEmail;
  * <br/>
  * @example
  * misc.validateEmail('eddie88cho@gmail.com');  // returns true
+ * @example
+ * misc.validateEmail('invalid_char😀@test.com');  // returns false
  *
  * @param {string} email 이메일주소
  * @return {boolean}  이메일 유효성
- *
  *
  * @author hkcho
  */
