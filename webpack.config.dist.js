@@ -24,9 +24,12 @@ const banner = `
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
-  entry: './src/lib/index.js',
+  entry: {
+    mirine: './src/lib/index.js',
+    'mirine.min': './src/lib/index.js',
+  },
   output: {
-    filename: 'mirine.min.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     library: {
       name: 'mirine',
@@ -36,7 +39,12 @@ module.exports = {
   },
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin({ extractComments: false })],
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false,
+        include: /\.min\.js$/,
+      }),
+    ],
   },
   module: {
     rules: [
