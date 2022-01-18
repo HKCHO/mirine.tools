@@ -32,6 +32,12 @@
   - 조사
     - 단어뒤에 올 '을/를' 중 올바른 조사를 반환
       - [`hangeul.josa.eulreul(word)`](./src/lib/hangeul/josa/eulreul.js) 
+    - 단어뒤에 올 '은/는' 중 올바른 조사를 반환
+      - [`hangeul.josa.eunneun(word)`](./src/lib/hangeul/josa/eunneun.js)
+    - 단어뒤에 올 '이/가' 중 올바른 조사를 반환
+      - [`hangeul.josa.iga(word)`](./src/lib/hangeul/josa/iga.js)
+    - 단어뒤에 올 '와/과' 중 올바른 조사를 반환
+      - [`hangeul.josa.wagwa(word)`](./src/lib/hangeul/josa/wagwa.js)
   - 수사
     - 숫자를 기수사로 변경 
       - [`hangeul.susa.numberToGisusa(number, [type], [spacing])`](./src/lib/hangeul/susa/numberToGisusa.js)
