@@ -3,7 +3,6 @@ package-lock.json
 .vscode
 .DS_Store
 build
-dist
 
 # `IDEA` efault ignored files
 .idea
