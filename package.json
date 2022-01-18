@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack serve --config webpack.config.demo.js",
     "build": "webpack",
+    "build:dist": "webpack --config webpack.config.dist.js",
     "build:demo": "webpack --config webpack.config.demo.js",
     "test": "jest",
     "doc": "jsdoc -c jsdoc.json -R README.md",
