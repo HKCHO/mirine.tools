@@ -1,4 +1,4 @@
-import HANGEUL_BASE from './constants';
+import { HANGEUL_BASE } from './josa/constants';
 import numberToGisusa from './susa/numberToGisusa';
 
 /**
@@ -32,5 +32,5 @@ export default function isEndWithBatchim(word) {
   // TODO 알파벳으로 마무리 될 때 종성을 처리할 수 있는 규칙이 있을까?
 
   // 0 = 받침 없음
-  return (lastChar - HANGEUL_BASE) % 28 !== 0;
+  return (lastChar.charCodeAt(0) - HANGEUL_BASE) % 28 !== 0;
 }

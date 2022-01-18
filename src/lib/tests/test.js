@@ -51,6 +51,11 @@ test('한글 도구 기능검사', () => {
   console.log(mirine.hangeul.isEndWithBatchim('김정은'));
   console.log(mirine.hangeul.isEndWithBatchim('이설주'));
    */
+  /*
+  // '을/를' 선택
+  console.log(`조현권${mirine.hangeul.josa.eulreul('조현권')}`);
+  console.log(`유혜지${mirine.hangeul.josa.eulreul('유혜지')}`);
+ */
 });
 
 test('사업자 도구 기능검사', () => {
