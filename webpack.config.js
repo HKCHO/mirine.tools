@@ -49,5 +49,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [new PrettierPlugin(), new webpack.BannerPlugin(banner)],
+  plugins: [new webpack.BannerPlugin(banner)],
 };
