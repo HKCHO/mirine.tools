@@ -30,7 +30,8 @@
 
 - ### 한글 관련 도구
   - 조사
-    - *(준비 중)* 
+    - 단어뒤에 올 '을/를' 중 올바른 조사를 반환
+      - [`hangeul.josa.eulreul(word)`](./src/lib/hangeul/josa/eulreul.js) 
   - 수사
     - 숫자를 기수사로 변경 
       - [`hangeul.susa.numberToGisusa(number, [type], [spacing])`](./src/lib/hangeul/susa/numberToGisusa.js)
