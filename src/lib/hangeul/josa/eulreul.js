@@ -1,4 +1,3 @@
-import isEndWithBatchim from '../isEndWithBatchim';
 import getJosa from './getJosa';
 
 /**

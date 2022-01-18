@@ -38,6 +38,8 @@
       - [`hangeul.josa.iga(word)`](./src/lib/hangeul/josa/iga.js)
     - 단어뒤에 올 '와/과' 중 올바른 조사를 반환
       - [`hangeul.josa.wagwa(word)`](./src/lib/hangeul/josa/wagwa.js)
+    - 단어뒤에 올 '로/으로' 중 올바른 조사를 반환
+      - [`hangeul.josa.eulo(word)`](./src/lib/hangeul/josa/eulo.js)
   - 수사
     - 숫자를 기수사로 변경 
       - [`hangeul.susa.numberToGisusa(number, [type], [spacing])`](./src/lib/hangeul/susa/numberToGisusa.js)

@@ -4,6 +4,7 @@ import { REGEX_COMPLETE_KOREAN } from '../utils/string-utils';
 import { validateKoreanName } from '../saram/validateKoreanName';
 import numberToGisusa from '../hangeul/susa/numberToGisusa';
 import { GISUSA_TYPES } from '../hangeul/susa/constants';
+import getJongseongIndex from "../hangeul/getJongseongIndex";
 
 test('사람 도구 기능검사', () => {
   /*
@@ -51,11 +52,10 @@ test('한글 도구 기능검사', () => {
   console.log(mirine.hangeul.isEndWithBatchim('조현권'));
   console.log(mirine.hangeul.isEndWithBatchim('유혜지'));
    */
-  /*
-  // '을/를' 선택
-  console.log(`조현권${mirine.hangeul.josa.eulreul('조현권')}`);
-  console.log(`유혜지${mirine.hangeul.josa.eulreul('유혜지')}`);
- */
+  // 조사 선택
+  console.log(`조현권${mirine.hangeul.josa.wagwa('조현권')}`);
+  console.log(`유혜지${mirine.hangeul.josa.wagwa('유혜지')}`);
+  console.log(`아스트랄${mirine.hangeul.josa.wagwa('아스트랄')}`);
 });
 
 test('사업자 도구 기능검사', () => {

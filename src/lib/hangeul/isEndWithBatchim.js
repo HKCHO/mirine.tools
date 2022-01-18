@@ -1,5 +1,6 @@
 import { HANGEUL_BASE } from './josa/constants';
 import numberToGisusa from './susa/numberToGisusa';
+import getJongseongIndex from './getJongseongIndex';
 
 /**
  * <h3>단어의 마지막 글자가 받침을 가지고 있는지 확인합니다</h3>
@@ -32,5 +33,5 @@ export default function isEndWithBatchim(word) {
   // TODO 알파벳으로 마무리 될 때 종성을 처리할 수 있는 규칙이 있을까?
 
   // 0 = 받침 없음
-  return (lastChar.charCodeAt(0) - HANGEUL_BASE) % 28 !== 0;
+  return getJongseongIndex(lastChar) !== 0;
 }
