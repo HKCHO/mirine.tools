@@ -1,12 +1,13 @@
 import isEndWithBatchim from '../isEndWithBatchim';
+import getJosa from './getJosa';
 
 /**
  * <h3>단어 뒤에 올 '을/를' 중 올바른 조사를 반환</h3>
  * <br/>
  * @example
- * hangeul.josa.eulreul('김정은'); // returns '을' - 김정은을
+ * hangeul.josa.eulreul('조현권'); // returns '을' - 조현권을
  * @example
- * hangeul.isEndWithBatchim('이설주'); // returns '를' - 이설주를
+ * hangeul.isEndWithBatchim('유혜지'); // returns '를' - 유혜지를
  * @example
  * hangeul.isEndWithBatchim(21); // returns true; '을' - 21을
  * @example
@@ -16,5 +17,5 @@ import isEndWithBatchim from '../isEndWithBatchim';
  * @return {string} '을' 또는 '를'
  */
 export default function eulreul(word) {
-  return isEndWithBatchim(word) ? '을' : '를';
+  return getJosa(word, '을');
 }

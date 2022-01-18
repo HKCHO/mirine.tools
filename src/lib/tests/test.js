@@ -48,8 +48,8 @@ test('한글 도구 기능검사', () => {
   // console.log('@2: ', susa.numberToGisusa(testNumber1));
   /*
   // 단어의 마지막 글자가 받침을 가지고 있는지 확인합니다
-  console.log(mirine.hangeul.isEndWithBatchim('김정은'));
-  console.log(mirine.hangeul.isEndWithBatchim('이설주'));
+  console.log(mirine.hangeul.isEndWithBatchim('조현권'));
+  console.log(mirine.hangeul.isEndWithBatchim('유혜지'));
    */
   /*
   // '을/를' 선택

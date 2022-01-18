@@ -7,9 +7,9 @@ import numberToGisusa from './susa/numberToGisusa';
  *  - 숫자 지원
  * <br/>
  * @example
- * hangeul.isEndWithBatchim('김정은'); // returns true
+ * hangeul.isEndWithBatchim('조현권'); // returns true
  * @example
- * hangeul.isEndWithBatchim('이설주'); // returns false
+ * hangeul.isEndWithBatchim('유혜지'); // returns false
  * @example
  * hangeul.isEndWithBatchim(21); // returns true; '이십일'
  * @example
